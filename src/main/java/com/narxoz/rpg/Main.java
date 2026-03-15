@@ -17,9 +17,15 @@ import com.narxoz.rpg.combat.Ability;
 import com.narxoz.rpg.combat.FlameBreath;
 import com.narxoz.rpg.composite.PartyComposite;
 import com.narxoz.rpg.composite.UnitLeaf;
+import com.narxoz.rpg.decorator.AttackAction;
+import com.narxoz.rpg.decorator.BasicAttack;
+import com.narxoz.rpg.decorator.decorators.CriticalFocusDecorator;
+import com.narxoz.rpg.decorator.decorators.FireRuneDecorator;
+import com.narxoz.rpg.decorator.decorators.PoisonCoatingDecorator;
 import com.narxoz.rpg.enemy.Enemy;
 import com.narxoz.rpg.equipment.Armor;
 import com.narxoz.rpg.equipment.Weapon;
+import com.narxoz.rpg.facade.DungeonFacade;
 import com.narxoz.rpg.factory.*;
 import com.narxoz.rpg.prototype.EnemyRegistry;
 import com.narxoz.rpg.enemy.Enemy;
@@ -137,7 +143,7 @@ public class Main {
         BattleEngine anotherEngine = BattleEngine.getInstance();
         System.out.println("\nSingleton Check: " + (engine == anotherEngine));*/
 
-        System.out.println("=== Bridge Pattern Demo ===");
+/*System.out.println("=== Bridge Pattern Demo ===");
         Skill fireRain = new AreaSkill(new FireEffect());
         Skill iceBolt = new SingleTargetSkill(new IceEffect());
 
@@ -165,7 +171,22 @@ public class Main {
         System.out.println();
 
         RaidEngine.getInstance().runRaid(mainRaid, enemyArmy);
+*/
 
+
+
+        AttackAction attack = new BasicAttack();
+
+        attack = new FireRuneDecorator(attack);
+        attack = new PoisonCoatingDecorator(attack);
+        attack = new CriticalFocusDecorator(attack);
+
+        System.out.println("Final Attack Description: " + attack.getDescription());
+        System.out.println("Final Damage: " + attack.getDamage());
+        DungeonFacade dungeon = new DungeonFacade();
+
+
+        dungeon.runDungeon("Aragorn", attack);
 
             }
         }
