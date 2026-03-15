@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="780540f2-2a48-4133-8e08-6b2bead04675" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/adapter/CharacterCombatantAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/adapter/EnemyCombatantAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/battle/BattleEngine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/battle/Combatant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/bridge/EffectImplementor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/bridge/Skill.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/bridge/effects/FireEffect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/bridge/effects/IceEffect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/bridge/effects/PhysicalEffect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/bridge/skills/AreaSkill.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/bridge/skills/SingleTargetSkill.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/builder/BossEnemyBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/builder/EnemyBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/builder/EnemyDirector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/character/Archer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/character/Character.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/character/Mage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/character/Warrior.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/combat/Ability.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/combat/FireShield.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/combat/FlameBreath.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/combat/FrostBreath.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/combat/IceShield.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/composite/CombatNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/composite/PartyComposite.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/composite/UnitLeaf.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/enemy/DragonBoss.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/enemy/Enemy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/enemy/Goblin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/equipment/Armor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/equipment/EnchantedRobes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/equipment/IronSword.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/equipment/LeatherArmor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/equipment/Longbow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/equipment/PlateArmor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/equipment/Weapon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/equipment/WizardStaff.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/factory/ArcherFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/factory/CharacterFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/factory/EnemyComponentFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/factory/EquipmentFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/factory/FireComponentFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/factory/IceComponentFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/factory/MageFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/factory/MagicFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/factory/MedievalFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/factory/RangerFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/factory/WarriorFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/loot/FireLootTable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/loot/IceLootTable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/loot/LootTable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/prototype/EnemyRegistry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/raid/RaidEngine.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="3AyMYVoM6D92xkSFIAbZTjj1Q7m" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="780540f2-2a48-4133-8e08-6b2bead04675" name="Changes" comment="" />
+      <created>1773560408208</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1773560408208</updated>
+    </task>
+    <servers />
+  </component>
+</project>
