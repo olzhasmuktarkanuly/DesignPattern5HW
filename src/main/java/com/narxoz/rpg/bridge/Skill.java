@@ -1,7 +1,7 @@
 package com.narxoz.rpg.bridge;
 
 public abstract class Skill {
-    protected EffectImplementor effect; // Мост к реализации
+    protected EffectImplementor effect;
 
     protected Skill(EffectImplementor effect) {
         this.effect = effect;

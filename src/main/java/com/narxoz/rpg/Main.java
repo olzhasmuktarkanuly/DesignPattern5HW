@@ -2,6 +2,8 @@ package com.narxoz.rpg;
 
 import com.narxoz.rpg.adapter.CharacterCombatantAdapter;
 import com.narxoz.rpg.adapter.EnemyCombatantAdapter;
+import com.narxoz.rpg.arena.ArenaFighter;
+import com.narxoz.rpg.arena.ArenaOpponent;
 import com.narxoz.rpg.battle.BattleEngine;
 import com.narxoz.rpg.battle.Combatant;
 import com.narxoz.rpg.bridge.Skill;
@@ -12,9 +14,16 @@ import com.narxoz.rpg.bridge.skills.SingleTargetSkill;
 import com.narxoz.rpg.builder.BossEnemyBuilder;
 import com.narxoz.rpg.builder.EnemyBuilder;
 import com.narxoz.rpg.builder.EnemyDirector;
+import com.narxoz.rpg.chain.DefenseHandler;
+import com.narxoz.rpg.chain.DodgeHandler;
+import com.narxoz.rpg.chain.HpHandler;
 import com.narxoz.rpg.character.Character;
 import com.narxoz.rpg.combat.Ability;
 import com.narxoz.rpg.combat.FlameBreath;
+import com.narxoz.rpg.command.ActionQueue;
+import com.narxoz.rpg.command.AttackCommand;
+import com.narxoz.rpg.command.DefendCommand;
+import com.narxoz.rpg.command.HealCommand;
 import com.narxoz.rpg.composite.PartyComposite;
 import com.narxoz.rpg.composite.UnitLeaf;
 import com.narxoz.rpg.decorator.AttackAction;
@@ -33,6 +42,7 @@ import com.narxoz.rpg.builder.*;
 import com.narxoz.rpg.factory.*;
 import com.narxoz.rpg.prototype.EnemyRegistry;
 import com.narxoz.rpg.raid.RaidEngine;
+import com.narxoz.rpg.tournament.TournamentEngine;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -173,9 +183,7 @@ public class Main {
         RaidEngine.getInstance().runRaid(mainRaid, enemyArmy);
 */
 
-
-
-        AttackAction attack = new BasicAttack();
+/*        AttackAction attack = new BasicAttack();
 
         attack = new FireRuneDecorator(attack);
         attack = new PoisonCoatingDecorator(attack);
@@ -186,8 +194,42 @@ public class Main {
         DungeonFacade dungeon = new DungeonFacade();
 
 
-        dungeon.runDungeon("Aragorn", attack);
+        dungeon.runDungeon("Aragorn", attack);*/
 
-            }
-        }
+        ArenaFighter hero = new ArenaFighter("Gladiator", 100, 25, 0.1, 20, 5, 3);
+        ArenaOpponent boss = new ArenaOpponent("Mountain Troll", 150, 35);
+
+        System.out.println("--- DEMO 1: Command Queue & Undo ---");
+        ActionQueue queue = new ActionQueue();
+        queue.enqueue(new AttackCommand(boss, 30));
+        queue.enqueue(new HealCommand(hero));
+        queue.enqueue(new DefendCommand(hero));
+
+        System.out.println("Initial queue: " + queue.getCommandDescriptions());
+        queue.undoLast();
+        System.out.println("Queue after undo: " + queue.getCommandDescriptions());
+        queue.executeAll();
+        System.out.println();
+
+        System.out.println("--- DEMO 2: Defense Chain Manual Test ---");
+        DefenseHandler chain = new DodgeHandler();
+        DefenseHandler hp = new HpHandler();
+        chain.setNext(hp);
+
+        System.out.println("Hero HP before: " + hero.getHp());
+        chain.handle(50, hero);
+        System.out.println("Hero HP after: " + hero.getHp());
+        System.out.println();
+
+        System.out.println("--- DEMO 3: Full Tournament Simulation ---");
+        hero.heal(100);
+        TournamentEngine engine = new TournamentEngine();
+        engine.runTournament(hero, boss);
+
+
+
+
+
+       }
+    }
 
