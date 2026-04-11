@@ -43,6 +43,13 @@ import com.narxoz.rpg.factory.*;
 import com.narxoz.rpg.prototype.EnemyRegistry;
 import com.narxoz.rpg.raid.RaidEngine;
 import com.narxoz.rpg.tournament.TournamentEngine;
+import com.narxoz.rpg.combatant.*;
+import com.narxoz.rpg.observer.*;
+import com.narxoz.rpg.observer.observers.*;
+import com.narxoz.rpg.strategy.*;
+import com.narxoz.rpg.engine.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -196,7 +203,7 @@ public class Main {
 
         dungeon.runDungeon("Aragorn", attack);*/
 
-        ArenaFighter hero = new ArenaFighter("Gladiator", 100, 25, 0.1, 20, 5, 3);
+/* ArenaFighter hero = new ArenaFighter("Gladiator", 100, 25, 0.1, 20, 5, 3);
         ArenaOpponent boss = new ArenaOpponent("Mountain Troll", 150, 35);
 
         System.out.println("--- DEMO 1: Command Queue & Undo ---");
@@ -224,12 +231,46 @@ public class Main {
         System.out.println("--- DEMO 3: Full Tournament Simulation ---");
         hero.heal(100);
         TournamentEngine engine = new TournamentEngine();
-        engine.runTournament(hero, boss);
+        engine.runTournament(hero, boss); */
 
 
 
 
+                GamePublisher publisher = new GamePublisher();
 
-       }
-    }
+                Hero warrior = new Hero("Warrior", 150, 20, 15);
+                warrior.setStrategy(new BalancedStrategy());
+
+                Hero mage = new Hero("Mage", 100, 45, 5);
+                mage.setStrategy(new AggressiveStrategy());
+
+                Hero paladin = new Hero("Paladin", 200, 15, 30);
+                paladin.setStrategy(new DefensiveStrategy());
+
+                List<Hero> party = new ArrayList<>();
+                party.add(warrior);
+                party.add(mage);
+                party.add(paladin);
+
+                System.out.println("[Demo] Mage feels the danger and switches to Defensive Strategy before entering...");
+                mage.setStrategy(new DefensiveStrategy());
+
+                DungeonBoss boss = new DungeonBoss("Malphas the Cursed", 800, 35, 20, publisher);
+
+                publisher.subscribe(new BattleLogger());
+                publisher.subscribe(new AchievementTracker());
+                publisher.subscribe(new HeroStatusMonitor());
+                publisher.subscribe(new LootDropper());
+
+                publisher.subscribe(boss);
+
+                DungeonEngine engine = new DungeonEngine(publisher);
+
+                EncounterResult result = engine.startEncounter(party, boss);
+
+                result.printSummary();
+            }
+        }
+
+
 
