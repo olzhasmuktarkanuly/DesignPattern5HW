@@ -5,26 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="780540f2-2a48-4133-8e08-6b2bead04675" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/UML/Strategy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/combatant/DungeonBoss.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/combatant/Hero.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/engine/DungeonEngine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/engine/EncounterResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/observer/GameEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/observer/GameEventType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/observer/GameObserver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/observer/GamePublisher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/observer/observers/AchievementTracker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/observer/observers/BattleLogger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/observer/observers/HeroStatusMonitor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/observer/observers/LootDropper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/strategy/AggressiveStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/strategy/BalancedStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/strategy/BerserkStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/strategy/CombatStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/strategy/DefensiveStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/UML/state.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/UML/templatemethod.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/combatant/Monster.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/floor/BattleFloor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/floor/FloorResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/floor/RestFloor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/floor/TowerFloor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/floor/TrapFloor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/state/BerserkState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/state/HeroState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/state/NeutralState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/state/PoisonState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/tower/TowerRunResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/tower/TowerRunner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/combatant/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/combatant/Hero.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +39,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -53,21 +54,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/mukta/IdeaProjects/homeworkDP/rpgsystem/src/main/java/com/narxoz/rpg/UML"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/mukta/Downloads/Telegram Desktop/TheLastStand (2)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\mukta\IdeaProjects\homeworkDP\rpgsystem\src\main\java\com\narxoz\rpg\UML" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -77,7 +89,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1773560408208</updated>
+      <workItem from="1776181531942" duration="47000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>

@@ -36,20 +36,28 @@ import com.narxoz.rpg.equipment.Armor;
 import com.narxoz.rpg.equipment.Weapon;
 import com.narxoz.rpg.facade.DungeonFacade;
 import com.narxoz.rpg.factory.*;
+import com.narxoz.rpg.floor.BattleFloor;
+import com.narxoz.rpg.floor.RestFloor;
+import com.narxoz.rpg.floor.TowerFloor;
+import com.narxoz.rpg.floor.TrapFloor;
 import com.narxoz.rpg.prototype.EnemyRegistry;
 import com.narxoz.rpg.enemy.Enemy;
 import com.narxoz.rpg.builder.*;
 import com.narxoz.rpg.factory.*;
 import com.narxoz.rpg.prototype.EnemyRegistry;
 import com.narxoz.rpg.raid.RaidEngine;
+import com.narxoz.rpg.state.BerserkState;
+import com.narxoz.rpg.state.NeutralState;
 import com.narxoz.rpg.tournament.TournamentEngine;
 import com.narxoz.rpg.combatant.*;
 import com.narxoz.rpg.observer.*;
 import com.narxoz.rpg.observer.observers.*;
 import com.narxoz.rpg.strategy.*;
 import com.narxoz.rpg.engine.*;
-import java.util.ArrayList;
-import java.util.List;
+import com.narxoz.rpg.tower.TowerRunResult;
+import com.narxoz.rpg.tower.TowerRunner;
+
+import java.util.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -233,10 +241,7 @@ public class Main {
         TournamentEngine engine = new TournamentEngine();
         engine.runTournament(hero, boss); */
 
-
-
-
-                GamePublisher publisher = new GamePublisher();
+/* GamePublisher publisher = new GamePublisher();
 
                 Hero warrior = new Hero("Warrior", 150, 20, 15);
                 warrior.setStrategy(new BalancedStrategy());
@@ -268,7 +273,37 @@ public class Main {
 
                 EncounterResult result = engine.startEncounter(party, boss);
 
-                result.printSummary();
+                result.printSummary();*/
+
+
+        Hero arthur = new Hero("Arthur (Knight)", 100, 30, 15);
+        arthur.setState(new NeutralState());
+
+        Hero guts = new Hero("Guts (Berserker)", 120, 25, 10);
+        guts.setState(new BerserkState());
+
+        List<Hero> party = Arrays.asList(arthur, guts);
+
+        List<TowerFloor> floors = Arrays.asList(
+                new BattleFloor(),
+                new TrapFloor(),
+                new RestFloor(),
+                new BattleFloor()
+        );
+
+        TowerRunner runner = new TowerRunner();
+        TowerRunResult result = runner.run(party, floors);
+
+        System.out.println("Total Floors Cleared: " + result.getFloorsCleared() + " out of " + floors.size());
+        System.out.println("Heroes Survived: " + result.getSurvivors());
+
+        if (result.getFloorsCleared() == floors.size()) {
+            System.out.println("Result: VICTORY!");
+        } else {
+            System.out.println("Result: DEFEAT...");
+        }
+
+
             }
         }
 
