@@ -4,26 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="780540f2-2a48-4133-8e08-6b2bead04675" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/artifact/Armor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/artifact/Artifact.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/artifact/ArtifactVisitor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/artifact/CurseDetector.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/artifact/EnchantmentScanner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/artifact/GoldAppraiser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/artifact/Inventory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/artifact/Potion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/artifact/Ring.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/artifact/Scroll.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/artifact/Weapon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/artifact/WeightCalculator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/combatant/HeroMemento.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/memento/Caretaker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/vault/ChronomancerEngine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/vault/VaultRunResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/combatant/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/combatant/Hero.java" afterDir="false" />
+    <list default="true" id="780540f2-2a48-4133-8e08-6b2bead04675" name="Changes" comment="homework 9">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/narxoz/rpg/UML/visitorpattern.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,9 +75,22 @@
       <updated>1773560408208</updated>
       <workItem from="1776181531942" duration="47000" />
     </task>
+    <task id="LOCAL-00001" summary="homework 9">
+      <option name="closed" value="true" />
+      <created>1778052658644</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1778052658644</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="homework 9" />
+    <option name="LAST_COMMIT_MESSAGE" value="homework 9" />
   </component>
 </project>
