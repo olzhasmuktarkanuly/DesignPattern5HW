@@ -8,6 +8,8 @@ import com.narxoz.rpg.state.NeutralState;
 public class Hero {
     private String name;
     private int hp, maxHp, attackPower, defense;
+    private int mana = 100;
+    private int gold = 500;
     private CombatStrategy strategy;
     private HeroState state;
 
@@ -21,6 +23,15 @@ public class Hero {
         this.state = new NeutralState();
     }
 
+    public HeroMemento createMemento() {
+        return new HeroMemento(this.hp, this.mana, this.gold);
+    }
+
+    public void restoreFromMemento(HeroMemento memento) {
+        this.hp = memento.getHp();
+        this.mana = memento.getMana();
+        this.gold = memento.getGold();
+    }
 
     public int getAttackPower() {
         int base = strategy.calculateDamage(attackPower);
@@ -33,6 +44,9 @@ public class Hero {
         this.hp = Math.max(0, this.hp - finalDamage);
     }
 
+    public void spendMana(int amount) { this.mana = Math.max(0, this.mana - amount); }
+    public void loseGold(int amount) { this.gold = Math.max(0, this.gold - amount); }
+    public void printStatus() { System.out.println(name + " -> HP: " + hp + ", Mana: " + mana + ", Gold: " + gold); }
 
     public void startTurn() { state.onTurnStart(this); }
     public void endTurn() { state.onTurnEnd(this); }
@@ -40,7 +54,6 @@ public class Hero {
 
     public void setState(HeroState state) { this.state = state; }
     public HeroState getState() { return state; }
-
     public String getName() { return name; }
     public int getHp() { return hp; }
     public void setHp(int hp) { this.hp = Math.min(maxHp, Math.max(0, hp)); }
