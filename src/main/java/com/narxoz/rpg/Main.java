@@ -1,90 +1,44 @@
 package com.narxoz.rpg;
 
-import com.narxoz.rpg.adapter.CharacterCombatantAdapter;
-import com.narxoz.rpg.adapter.EnemyCombatantAdapter;
-import com.narxoz.rpg.arena.ArenaFighter;
-import com.narxoz.rpg.arena.ArenaOpponent;
-import com.narxoz.rpg.battle.BattleEngine;
-import com.narxoz.rpg.battle.Combatant;
-import com.narxoz.rpg.bridge.Skill;
-import com.narxoz.rpg.bridge.effects.FireEffect;
-import com.narxoz.rpg.bridge.effects.IceEffect;
-import com.narxoz.rpg.bridge.skills.AreaSkill;
-import com.narxoz.rpg.bridge.skills.SingleTargetSkill;
-import com.narxoz.rpg.builder.BossEnemyBuilder;
-import com.narxoz.rpg.builder.EnemyBuilder;
-import com.narxoz.rpg.builder.EnemyDirector;
-import com.narxoz.rpg.chain.DefenseHandler;
-import com.narxoz.rpg.chain.DodgeHandler;
-import com.narxoz.rpg.chain.HpHandler;
-import com.narxoz.rpg.character.Character;
-import com.narxoz.rpg.combat.Ability;
-import com.narxoz.rpg.combat.FlameBreath;
-import com.narxoz.rpg.command.ActionQueue;
-import com.narxoz.rpg.command.AttackCommand;
-import com.narxoz.rpg.command.DefendCommand;
-import com.narxoz.rpg.command.HealCommand;
-import com.narxoz.rpg.composite.PartyComposite;
-import com.narxoz.rpg.composite.UnitLeaf;
-import com.narxoz.rpg.decorator.AttackAction;
-import com.narxoz.rpg.decorator.BasicAttack;
-import com.narxoz.rpg.decorator.decorators.CriticalFocusDecorator;
-import com.narxoz.rpg.decorator.decorators.FireRuneDecorator;
-import com.narxoz.rpg.decorator.decorators.PoisonCoatingDecorator;
-import com.narxoz.rpg.enemy.Enemy;
-import com.narxoz.rpg.facade.DungeonFacade;
-import com.narxoz.rpg.factory.*;
-import com.narxoz.rpg.floor.BattleFloor;
-import com.narxoz.rpg.floor.RestFloor;
-import com.narxoz.rpg.floor.TowerFloor;
-import com.narxoz.rpg.floor.TrapFloor;
-import com.narxoz.rpg.prototype.EnemyRegistry;
-import com.narxoz.rpg.enemy.Enemy;
-import com.narxoz.rpg.builder.*;
-import com.narxoz.rpg.factory.*;
-import com.narxoz.rpg.prototype.EnemyRegistry;
-import com.narxoz.rpg.raid.RaidEngine;
-import com.narxoz.rpg.state.BerserkState;
-import com.narxoz.rpg.state.NeutralState;
-import com.narxoz.rpg.tournament.TournamentEngine;
-import com.narxoz.rpg.combatant.*;
-import com.narxoz.rpg.observer.*;
-import com.narxoz.rpg.observer.observers.*;
-import com.narxoz.rpg.strategy.*;
-import com.narxoz.rpg.engine.*;
-import com.narxoz.rpg.tower.TowerRunResult;
-import com.narxoz.rpg.tower.TowerRunner;
-import java.util.*;
-import java.util.ArrayList;
-import java.util.List;
 import com.narxoz.rpg.combatant.Hero;
-import com.narxoz.rpg.memento.Caretaker;
-import com.narxoz.rpg.artifact.*;
-import com.narxoz.rpg.vault.ChronomancerEngine;
-import com.narxoz.rpg.vault.VaultRunResult;
+import com.narxoz.rpg.council.CouncilEngine;
+import com.narxoz.rpg.council.CouncilRunResult;
+import com.narxoz.rpg.guild.*;
+import com.narxoz.rpg.quest.*;
 
 public class Main {
     public static void main(String[] args) {
+        Hero h1 = new Hero("Arthur", 10);
+        Hero h2 = new Hero("Merlin", 12);
 
-        Hero knight = new Hero("Knight Arthur", 150, 30, 20);
-        Hero mage = new Hero("Mage Merlin", 80, 10, 5);
+        QuestLog log = new QuestLog();
+        log.addQuest(new Quest("Goblin Camp", "Clear the local goblins", QuestPriority.LOW, 50));
+        log.addQuest(new Quest("Dragon's Lair", "Slay the ancient dragon", QuestPriority.URGENT, 5000));
+        log.addQuest(new Quest("Lost Caravan", "Find missing merchants", QuestPriority.NORMAL, 200));
+        log.addQuest(new Quest("Cursed Ruins", "Purge the undead", QuestPriority.HIGH, 1000));
+        log.addQuest(new Quest("Bandit King", "Capture the bandit leader", QuestPriority.NORMAL, 300));
 
-        Inventory vaultLoot = new Inventory();
-        vaultLoot.addArtifact(new Weapon("Excalibur", 500, 50));
-        vaultLoot.addArtifact(new Potion("Elixir of Life", 50, 100));
-        vaultLoot.addArtifact(new Scroll("Scroll of Time", 200, "Time Warp"));
-        vaultLoot.addArtifact(new Ring("Cursed Ring of Greed", 300, "Gold Drain"));
-        vaultLoot.addArtifact(new Armor("Dragon Scale", 400, 60));
+        GuildHall hall = new GuildHall();
+        Captain captain = new Captain("Vanguard Leon", hall);
+        Quartermaster qm = new Quartermaster("Stash Keeper", hall);
+        Scout scout = new Scout("Eagle Eye", hall);
+        Healer healer = new Healer("Sister Elara", hall);
+        Loremaster loremaster = new Loremaster("Archivist Theron", hall);
 
-        Caretaker caretaker = new Caretaker();
-        ChronomancerEngine engine = new ChronomancerEngine();
+        QuestIterator allIter = log.ordered();
+        while (allIter.hasNext()) { System.out.println(allIter.next()); }
 
-        VaultRunResult run1 = engine.runVault(knight, vaultLoot, caretaker);
-        VaultRunResult run2 = engine.runVault(mage, vaultLoot, caretaker);
+        QuestIterator revIter = log.reverse();
+        while (revIter.hasNext()) { System.out.println(revIter.next()); }
 
-        System.out.println(knight.getName() + " -> Success: " + run1.isSuccessfulRun() + " | Rewinds: " + run1.getRewindsUsed());
-        System.out.println(mage.getName() + " -> Success: " + run2.isSuccessfulRun() + " | Rewinds: " + run2.getRewindsUsed());
-    }
+        CouncilEngine engine = new CouncilEngine();
+        CouncilRunResult result = engine.runCouncil(log, hall, captain, scout, loremaster);
+
+        qm.requestSupplies("We need 50 healing potions for the upcoming raids.");
+        healer.requestMedicalHelp("Setting up triage tents in the courtyard.");
+
+        System.out.println("Success: " + result.isSuccess() + ", Quests Planned: " + result.getQuestsPlanned());
+        }
 }
 
 

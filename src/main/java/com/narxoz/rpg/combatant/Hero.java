@@ -13,7 +13,7 @@ public class Hero {
     private CombatStrategy strategy;
     private HeroState state;
 
-    public Hero(String name, int maxHp, int attackPower, int defense) {
+    public Hero(String name, int maxHp) {
         this.name = name;
         this.maxHp = maxHp;
         this.hp = maxHp;
